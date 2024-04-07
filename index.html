@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <button class="login-btn">Đăng nhập hệ thống</button>
+        </div>
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <form action="" method="post" id="form-login" class="form">
+                    <h3 class="form-title">Member Login</h3>
+                    <div class="form-group">
+                        <div class="form-group-body">
+                            <div class="form-icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <input id="username" name="username" type="text" placeholder="Username"
+                                class="form-control">
+                        </div>
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-body">
+                            <div class="form-icon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input id="password" name="password" type="password" placeholder="Password"
+                                class="form-control">
+
+                        </div>
+                        <span class="form-message message-all"></span>
+                    </div>
+
+                    <button class="form-submit">Login</button>
+
+                </form>
+                <div class="modal-footer">
+                    <button class="form-forgot">Forgot Password?</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="./main.js"></script>
+
+<script>
+    Validator({
+        form: '#form-login',
+        errorSelector: '.form-message',
+        formGroupSelector: '.form-group',
+        rules: [
+            Validator.isRequired('#username', 'Vui lòng nhập tên đăng nhập của bạn!'),
+            Validator.isRequired('#password', 'Vui lòng nhập mật khẩu của bạn!'),
+            Validator.minLength('#password', 5),
+        ],
+        onSubmit: (data) => {
+            //Call API
+            var submitBtn = document.querySelector('.form-submit');
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse"></i>';
+            submitBtn.disabled = true;
+            setTimeout(() => {
+                if (data.username === 'admin'
+                    && data.password === 'admin') {
+                    document.querySelector('.modal').classList.remove('open');
+                    document.querySelector('.login-btn').innerText = 'Đăng nhập thành công';
+                } else {
+                    var errorMessageAll = document.querySelector('.message-all');
+                    errorMessageAll.innerText = "Tài khoản hoặc mật khẩu không đúng!";
+                    errorMessageAll.style.color = '#f33a58';
+                }
+
+                submitBtn.innerHTML = 'Login';
+                submitBtn.disabled = false;
+            }, 2000);
+            
+        },
+    });
+</script>
+
+</html>

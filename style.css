@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    padding-left: 28px;
+    border-radius: 4px;
+    border: 1px solid #d1d1d1;
+    outline: none;
+}
+
+input:hover, input:focus {
+    border-color: #848484;
+}
+
+
+.hidden {
+    display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.login-btn {
+    padding: 6px 12px;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    background-color: #2be9ab;
+    border-radius: 8px;
+    border: none;
+}
+
+.login-btn:hover {
+    background-color: #1d9d73;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-container {
+    width: 300px;
+    height: 340px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-close {
+    right: 0;
+    position: absolute;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+    color: #f33a58;
+}
+
+.modal-close i {
+    font-size: 1.3rem;
+    padding: 4px;
+    margin: 4px;
+}
+
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px;
+}
+
+.form-title {
+    margin: 28px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.form-icon {
+    position: absolute;
+    margin-left: 8px;
+}
+
+.form-message {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    margin-left: 2px;
+    height: 12px;
+}
+
+.form-submit {
+    color: #fff;
+    padding: 8px 0;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: #2be9ab;
+
+}
+
+.form-submit:hover {
+    background-color: #1d9d73;
+}
+
+.modal-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.form-forgot {
+    bottom: 0;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+}
+
+.form-forgot:hover {
+    background-color: #d8d8d8;
+}
+
+
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-message,
+.form-group.invalid .form-icon {
+    color: #f33a58;
+}
